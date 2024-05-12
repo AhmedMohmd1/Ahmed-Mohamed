@@ -24,8 +24,8 @@ public class T01_LoginTests {
     public void verifyLoginSuccessfully() {
       
         new P01_LoginPage(getDriver())
-                .enterUserName(getJsonData("userData", "userLoginData.user1"))
-                .enterPassword(getJsonData("userData", "userLoginData.password"))
+                .enterUserName(getJsonData("userData", "user1"))
+                .enterPassword(getJsonData("userData", "password"))
                 .clickLoginButton();
         VerifyURL(getDriver(), DataUtils.getEnvironmentPropertyValue("HOME_URL"));
     }

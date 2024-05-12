@@ -15,6 +15,7 @@ import static automationexercise.DriverManager.DriverManager.getDriver;
 import static automationexercise.Utilities.DataUtils.getJsonData;
 
 public class T02_HomePageTests {
+
     SoftAssert soft = new SoftAssert();
 
     @BeforeMethod
@@ -26,8 +27,8 @@ public class T02_HomePageTests {
     @Test()
     public void verifyHomePageVisibility() {
         new P01_LoginPage(getDriver())
-                .enterUserName(getJsonData("loginData", "user1"))
-                .enterPassword(getJsonData("loginData", "password"))
+                .enterUserName(getJsonData("loginData", "userLoginData.user1"))
+                .enterPassword(getJsonData("loginData", "userLoginData.password"))
                 .clickLoginButton();
         soft.assertTrue(new P02_HomePage(getDriver()).verifyProductsHeader());
         soft.assertAll();
@@ -37,8 +38,8 @@ public class T02_HomePageTests {
     @Test()
     public void assertInventoryItemsCount() {
         new P01_LoginPage(getDriver())
-                .enterUserName(getJsonData("loginData", "userLoginData.user1"))
-                .enterPassword(getJsonData("loginData", "userLoginData.password"))
+                .enterUserName(getJsonData("loginData", "user1"))
+                .enterPassword(getJsonData("loginData", "password"))
                 .clickLoginButton();
         soft.assertEquals(new P02_HomePage(getDriver()).assertInventoryItemsCount(), 6);
         soft.assertAll();

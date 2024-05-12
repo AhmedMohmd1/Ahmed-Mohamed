@@ -27,16 +27,16 @@ public class T03_PurchaseTests {
     @Test
     public void purchaseOrderTest() {
         new P01_LoginPage(getDriver())
-                .enterUserName(getJsonData("userData", "userLoginData.user1"))
-                .enterPassword(getJsonData("userData", "userLoginData.user1"))
+                .enterUserName(getJsonData("userData", "user1"))
+                .enterPassword(getJsonData("userData", "password"))
                 .clickLoginButton()
                 .pressAddToCartButtonOnFirst3Buttons()
                 .pressShoppingCartIcon()
                 .pressCheckoutButton()
                 .enterPersonalInfo(
-                        getJsonData("userData", "userInfo.firstName"),
-                        getJsonData("userData", "userInfo.secondName"),
-                        getJsonData("userData", "userInfo.postalCode"))
+                        getJsonData("userData", "firstName"),
+                        getJsonData("userData", "secondName"),
+                        getJsonData("userData", "postalCode"))
                 .pressContinueButton();
 
         soft.assertEquals(new P05_OverviewPage(getDriver()).getTotalPriceItems(),
